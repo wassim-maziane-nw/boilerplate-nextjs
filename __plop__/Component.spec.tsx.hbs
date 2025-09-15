@@ -1,0 +1,12 @@
+import React from "react";
+
+import {{pascalCase name}} from "./{{pascalCase name}}";
+
+import { render } from "@testing-library/react";
+
+describe("test {{pascalCase  name}} component", () => {
+  it("should render correct text", () => {
+    const { queryAllByText } = render(<{{pascalCase name}} />);
+    expect(queryAllByText("{{pascalCase name}} component")).toHaveLength(1);
+  });
+});
