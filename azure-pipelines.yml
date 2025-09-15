@@ -1,0 +1,76 @@
+trigger:
+  branches:
+    include:
+      - main
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  NODE_MODULES_CACHE_FOLDER: $(System.DefaultWorkingDirectory)/node_modules/
+  CI_CACHE_FOLDER: $(System.DefaultWorkingDirectory)/.cicache/
+  BUILD_CACHE_FOLDER: $(System.DefaultWorkingDirectory)/.next/cache/
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14'
+    displayName: 'Install Node.js'
+
+  - task: Cache@2
+    inputs:
+      key: 'nodemodules | "$(Agent.OS)" | yarn.lock'
+      path: $(NODE_MODULES_CACHE_FOLDER)
+
+    displayName: 'Cache node_modules'
+
+  - script: |
+      cp yarn.lock yarn.lock.orig
+      yarn install --frozen-lockfile --check-files --prefer-offline
+      # this check is necessary because --frozen-lockfile is buggy: yarn.lock will be updated if a "resolution" requires it
+      cmp -s yarn.lock yarn.lock.orig || { echo "::error file=yarn.lock::yarn.lock file is not up-to-date, please run a yarn install locally"; exit 1; }
+    displayName: 'Install node dependencies'
+
+  - task: Cache@2
+    inputs:
+      key: 'ci | "$(Agent.OS)" | yarn.lock'
+      path: $(CI_CACHE_FOLDER)
+      restoreKeys: |
+        ci | "$(Agent.OS)"
+        ci
+
+    displayName: 'Cache CI files'
+
+  - script: |
+      yarn lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
+      yarn test:coverage --cacheDirectory .cicache/jest
+      node reportCoverage.js coverage/coverage-summary.json
+    displayName: 'Run tests and lint'
+
+  - task: PublishTestResults@2
+    condition: succeededOrFailed()
+    inputs:
+      testRunner: JUnit
+      testResultsFiles: '**/junit.xml'
+
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+      reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+
+  - task: Cache@2
+    inputs:
+      key: 'build | "$(Agent.OS)" | yarn.lock'
+      path: $(BUILD_CACHE_FOLDER)
+      restoreKeys: |
+        build | "$(Agent.OS)"
+        build
+    displayName: 'Cache Build files'
+
+  - script: 'yarn build:export && echo $(BUILD_CACHE_FOLDER)'
+    displayName: 'Build application'
