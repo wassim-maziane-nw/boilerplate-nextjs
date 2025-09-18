@@ -10,12 +10,40 @@ exports[`Testing page example should render home 1`] = `
   -webkit-background-size: 80%;
   background-size: 80%;
   background-repeat: no-repeat;
-  background-color: #fff;
+  background-color: #000000;
+}
+
+.emotion-1 {
+  width: 8.625rem;
+  height: 3.5rem;
+  border-radius: 3.75rem;
+  border-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.emotion-1 span {
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 <div>
   <div
-    class="background-div emotion-0"
-  />
+    class="background-div flex emotion-0"
+  >
+    <div
+      class="flex justify-center items-center h-full w-full"
+    >
+      <button
+        class="emotion-1"
+      >
+        <span>
+          join
+        </span>
+      </button>
+    </div>
+  </div>
 </div>
 `;

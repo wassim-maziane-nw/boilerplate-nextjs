@@ -1,7 +1,27 @@
-import type { Theme } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
 
-export const muiTheme: Theme = createTheme({
+declare module "@mui/material/styles" {
+  interface Theme {
+    button: {
+      borderStyle: string;
+      borderWidth: string;
+      borderRadius: string;
+      width: string;
+      height: string;
+    };
+  }
+  interface ThemeOptions {
+    button: {
+      borderStyle: string;
+      borderWidth: string;
+      borderRadius: string;
+      width: string;
+      height: string;
+    };
+  }
+}
+
+export const muiTheme = createTheme({
   palette: {
     primary: {
       main: "#FFFFFF",
@@ -34,5 +54,12 @@ export const muiTheme: Theme = createTheme({
       fontSize: "1rem",
       lineHeight: "1.5rem",
     },
+  },
+  button: {
+    borderStyle: "solid",
+    borderWidth: "1px",
+    borderRadius: "3.75rem",
+    width: "8.625rem",
+    height: "3.5rem",
   },
 });
