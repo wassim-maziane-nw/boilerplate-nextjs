@@ -7,11 +7,7 @@ export const metadata: Metadata = {
 };
 
 const HomePage: React.FC = () => {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+  return <Home />;
 };
 
 export default HomePage;
