@@ -1,5 +1,6 @@
 import React from "react";
 
+import { MuiThemeProvider } from "~app/mui-theme-provider/mui-theme-provider";
 import { TestTranslationProvider } from "~i18n";
 
 // eslint-disable-next-line no-restricted-imports
@@ -16,7 +17,11 @@ import { render, renderHook } from "@testing-library/react";
 import type { ReactNode } from "react";
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return <TestTranslationProvider>{children}</TestTranslationProvider>;
+  return (
+    <MuiThemeProvider>
+      <TestTranslationProvider>{children}</TestTranslationProvider>
+    </MuiThemeProvider>
+  );
 };
 
 const customRender = <
