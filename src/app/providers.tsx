@@ -7,7 +7,7 @@ import { StoreProvider } from "~store/provider";
 import notistackRef from "~utils/notistackRef";
 import { queryClient } from "~utils/queryClient";
 
-import { MuiThemeProvider } from "./muiThemeProvider/mui-theme-provider";
+import { MuiThemeProvider } from "./mui-theme-provider/mui-theme-provider";
 import { RootStyleRegistry } from "./styleRegistry";
 
 import { SnackbarProvider } from "notistack";
