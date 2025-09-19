@@ -14,35 +14,23 @@ exports[`Testing page example should render home 1`] = `
 }
 
 .emotion-1 {
-  width: 8.625rem;
-  height: 3.5rem;
-  border-radius: 3.75rem;
-  border-color: #404040;
-  border-width: 1.5px;
-  border-style: solid;
-  background-color: #FFFFFF;
-}
-
-.emotion-1 span {
-  font-family: "Neue Haas Grotesk Display Pro";
+  margin: 0;
   font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.emotion-1 span {
-  color: #404040;
-}
-
-.emotion-1:hover {
-  background-color: #EB514E;
-}
-
-.emotion-1:hover span {
-  color: #FFFFFF;
+  font-size: 4rem;
+  line-height: 6.25rem;
+  text-align: center;
+  font-family: "Neue Haas Grotesk Display Pro";
 }
 
 .emotion-2 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-family: "Neue Haas Grotesk Display Pro";
+}
+
+.emotion-3 {
   width: 8.625rem;
   height: 3.5rem;
   border-radius: 3.75rem;
@@ -52,42 +40,99 @@ exports[`Testing page example should render home 1`] = `
   background-color: transparent;
 }
 
-.emotion-2 span {
+.emotion-3 span {
   font-family: "Neue Haas Grotesk Display Pro";
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.emotion-2 span {
+.emotion-3 span {
   color: #FFFFFF;
 }
 
-.emotion-2:hover {
+.emotion-3:hover {
   background-color: #595959;
+}
+
+.emotion-4 {
+  width: 8.625rem;
+  height: 3.5rem;
+  border-radius: 3.75rem;
+  border-color: #404040;
+  border-width: 1.5px;
+  border-style: solid;
+  background-color: #FFFFFF;
+}
+
+.emotion-4 span {
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.emotion-4 span {
+  color: #404040;
+}
+
+.emotion-4:hover {
+  background-color: #EB514E;
+}
+
+.emotion-4:hover span {
+  color: #FFFFFF;
 }
 
 <div>
   <div
-    class="background-div emotion-0"
+    class="background-div relative emotion-0"
   >
     <div
-      class="flex justify-center items-center h-full w-full gap-4"
+      class="flex justify-center items-center h-full"
     >
-      <button
-        class="emotion-1"
+      <div
+        class="flex flex-col justify-center items-center h-full w-1/2 gap-4"
       >
-        <span>
-          rejoindre
-        </span>
-      </button>
-      <button
-        class="emotion-2"
-      >
-        <span>
-          rejoindre
-        </span>
-      </button>
+        <img
+          alt="Theodo Logo"
+          data-nimg="1"
+          decoding="async"
+          height="63"
+          loading="lazy"
+          src="/assets/theodo-logo.svg"
+          style="color: transparent;"
+          width="295"
+        />
+        <h1
+          class="MuiTypography-root MuiTypography-h1 emotion-1"
+        >
+          Des outils sélectionnés pour vous équiper !
+        </h1>
+        <h2
+          class="MuiTypography-root MuiTypography-h2 emotion-2"
+        >
+          Rejoignez l'initiative worktools de Theodo pour être paré à vos tâches quotidiennes
+        </h2>
+        <div
+          class="flex gap-6"
+        >
+          <button
+            class="emotion-3"
+          >
+            <span>
+              Rejoindre
+            </span>
+          </button>
+          <button
+            class="emotion-4"
+          >
+            <span>
+              Se connecter
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
