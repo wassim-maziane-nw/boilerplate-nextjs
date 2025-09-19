@@ -3,12 +3,12 @@ import { StyledSecondaryButton } from "./secondary-button.style";
 import type { FC } from "react";
 
 type SecondaryButtonProps = {
-  text: string;
+  title: string;
   onClick: () => void;
 };
 
-const SecondaryButton: FC<SecondaryButtonProps> = ({ text, onClick }) => {
-  return <StyledSecondaryButton text={text} onClick={onClick} />;
+const SecondaryButton: FC<SecondaryButtonProps> = ({ title, onClick }) => {
+  return <StyledSecondaryButton title={title} onClick={onClick} />;
 };
 
 export default SecondaryButton;

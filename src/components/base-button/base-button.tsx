@@ -4,15 +4,15 @@ import { StyledButton } from "./base-button.style";
 
 import type { FC } from "react";
 type BaseButtonProps = {
-  text: string;
+  title: string;
   onClick: () => void;
   className?: string;
 };
 
-const BaseButton: FC<BaseButtonProps> = ({ text, onClick, className }) => {
+const BaseButton: FC<BaseButtonProps> = ({ title, onClick, className }) => {
   return (
     <StyledButton onClick={onClick} className={className}>
-      <span>{text}</span>
+      <span>{title}</span>
     </StyledButton>
   );
 };

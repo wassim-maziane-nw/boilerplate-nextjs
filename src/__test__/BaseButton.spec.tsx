@@ -3,12 +3,12 @@ import BaseButton from "~components/base-button";
 import { render, screen, userEvent } from "./test-utils";
 
 const defaultProps = {
-  text: "click",
+  title: "click",
   onClick: jest.fn(),
 };
 
 describe("Testing BaseButton component", () => {
-  it("test text in button", () => {
+  it("test title in button", () => {
     render(<BaseButton {...defaultProps} />);
     const button = screen.getByRole("button", { name: /click/u });
     expect(button).toBeInTheDocument();

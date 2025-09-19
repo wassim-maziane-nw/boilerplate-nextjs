@@ -3,12 +3,12 @@ import PrimaryButton from "~components/primary-button";
 import { render, screen, userEvent } from "./test-utils";
 
 const defaultProps = {
-  text: "click me",
+  title: "click me",
   onClick: jest.fn(),
 };
 
 describe("testing primary button", () => {
-  it("test text in button", () => {
+  it("test title in button", () => {
     render(<PrimaryButton {...defaultProps} />);
     screen.getByRole("button", { name: /click me/u });
   });

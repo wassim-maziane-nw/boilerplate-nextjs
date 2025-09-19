@@ -13,8 +13,8 @@ const Home: FC = () => {
   return (
     <Background className="background-div">
       <div className="flex justify-center items-center h-full w-full gap-4">
-        <PrimaryButton text={translate(txKeys.common.homePage.joinButton)} onClick={() => undefined} />
-        <SecondaryButton text={translate(txKeys.common.homePage.joinButton)} onClick={() => undefined} />
+        <PrimaryButton title={translate(txKeys.common.homePage.joinButton)} onClick={() => undefined} />
+        <SecondaryButton title={translate(txKeys.common.homePage.joinButton)} onClick={() => undefined} />
       </div>
     </Background>
   );
