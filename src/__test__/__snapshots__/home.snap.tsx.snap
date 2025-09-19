@@ -17,9 +17,10 @@ exports[`Testing page example should render home 1`] = `
   width: 8.625rem;
   height: 3.5rem;
   border-radius: 3.75rem;
-  border-color: #FFFFFF;
+  border-color: #404040;
   border-width: 1px;
   border-style: solid;
+  background-color: #FFFFFF;
 }
 
 .emotion-1 span {
@@ -27,11 +28,20 @@ exports[`Testing page example should render home 1`] = `
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.5rem;
+  color: #404040;
+}
+
+.emotion-1:hover {
+  background-color: #EB514E;
+}
+
+.emotion-1:hover span {
+  color: #FFFFFF;
 }
 
 <div>
   <div
-    class="background-div flex emotion-0"
+    class="background-div emotion-0"
   >
     <div
       class="flex justify-center items-center h-full w-full"
@@ -40,7 +50,7 @@ exports[`Testing page example should render home 1`] = `
         class="emotion-1"
       >
         <span>
-          join
+          rejoindre
         </span>
       </button>
     </div>
