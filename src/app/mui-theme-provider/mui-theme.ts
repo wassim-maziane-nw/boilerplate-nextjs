@@ -25,6 +25,12 @@ declare module "@mui/material/styles" {
   }
 }
 
+declare module "@mui/material/styles" {
+  interface TypeText {
+    silver: string;
+  }
+}
+
 export const muiTheme = createTheme({
   palette: {
     primary: {
@@ -39,17 +45,24 @@ export const muiTheme = createTheme({
     text: {
       primary: "#FFFFFF",
       secondary: "#404040",
+      silver: "#A6A6A6",
     },
   },
   typography: {
     fontFamily: `"Neue Haas Grotesk Display Pro"`,
     h1: {
       fontWeight: 600,
-      fontSize: "6rem",
+      fontSize: "4rem",
       lineHeight: "6.25rem",
+      textAlign: "center",
     },
     h2: {
       fontWeight: 500,
+      fontSize: "1rem",
+      lineHeight: "1rem",
+    },
+    h3: {
+      fontWeight: 600,
       fontSize: "1rem",
       lineHeight: "1rem",
     },
