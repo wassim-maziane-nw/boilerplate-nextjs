@@ -28,6 +28,9 @@ exports[`Testing page example should render home 1`] = `
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.emotion-1 span {
   color: #404040;
 }
 
@@ -39,15 +42,51 @@ exports[`Testing page example should render home 1`] = `
   color: #FFFFFF;
 }
 
+.emotion-2 {
+  width: 8.625rem;
+  height: 3.5rem;
+  border-radius: 3.75rem;
+  border-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+}
+
+.emotion-2 span {
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.emotion-2 span {
+  color: #FFFFFF;
+}
+
+.emotion-2:hover {
+  background-color: #FFFFFF;
+}
+
+.emotion-2:hover span {
+  color: #404040;
+}
+
 <div>
   <div
     class="background-div emotion-0"
   >
     <div
-      class="flex justify-center items-center h-full w-full"
+      class="flex justify-center items-center h-full w-full gap-4"
     >
       <button
         class="emotion-1"
+      >
+        <span>
+          rejoindre
+        </span>
+      </button>
+      <button
+        class="emotion-2"
       >
         <span>
           rejoindre
