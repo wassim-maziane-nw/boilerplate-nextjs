@@ -10,9 +10,14 @@ import { Background } from "./Home.style";
 import { Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { FC } from "react";
 const Home: FC = () => {
+  const router = useRouter();
   const translate = useTranslation();
+  const handleJoinClick = () => {
+    router.push("/signup");
+  };
   return (
     <Background className="background-div relative">
       <Link href="#" className="absolute top-4 right-40 flex gap-2">
@@ -30,8 +35,8 @@ const Home: FC = () => {
           <Typography variant="h1">{translate(txKeys.common.homePage.title)}</Typography>
           <Typography variant="h2">{translate(txKeys.common.homePage.subtitle)}</Typography>
           <div className="flex gap-6">
-            <PrimaryButton title={translate(txKeys.common.homePage.joinButton)} onClick={() => undefined} />
-            <SecondaryButton title={translate(txKeys.common.homePage.signInButton)} onClick={() => undefined} />
+            <SecondaryButton title={translate(txKeys.common.homePage.joinButton)} onClick={handleJoinClick} />
+            <PrimaryButton title={translate(txKeys.common.homePage.signInButton)} onClick={() => undefined} />
           </div>
         </div>
       </div>
