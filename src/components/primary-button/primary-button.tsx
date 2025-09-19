@@ -3,12 +3,12 @@ import { StyledPrimaryButton } from "./primary-button.style";
 import type { FC } from "react";
 
 type PrimaryButtonProps = {
-  text: string;
+  title: string;
   onClick: () => void;
 };
 
-const PrimaryButton: FC<PrimaryButtonProps> = ({ text, onClick }) => {
-  return <StyledPrimaryButton onClick={onClick} text={text} />;
+const PrimaryButton: FC<PrimaryButtonProps> = ({ title, onClick }) => {
+  return <StyledPrimaryButton onClick={onClick} title={title} />;
 };
 
 export default PrimaryButton;
