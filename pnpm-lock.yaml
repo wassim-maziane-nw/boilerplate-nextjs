@@ -67,6 +67,9 @@ importers:
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
+      zod:
+        specifier: ^4.1.9
+        version: 4.1.9
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.7.1
@@ -5952,6 +5955,9 @@ packages:
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
+  zod@4.1.9:
+    resolution: {integrity: sha512-HI32jTq0AUAC125z30E8bQNz0RQ+9Uc+4J7V97gLYjZVKRjeydPgGt6dvQzFrav7MYOUGFqqOGiHpA/fdbd0cQ==}
 
 snapshots:
 
@@ -12821,3 +12827,5 @@ snapshots:
       zod: 3.23.8
 
   zod@3.23.8: {}
+
+  zod@4.1.9: {}
