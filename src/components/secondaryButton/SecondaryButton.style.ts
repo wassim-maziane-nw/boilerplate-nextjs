@@ -9,9 +9,6 @@ export const StyledSecondaryButton = styled(BaseButton)(({ theme }) => ({
     color: theme.palette.text.primary,
   },
   "&:hover": {
-    backgroundColor: theme.palette.primary.main,
-    "& span": {
-      color: theme.palette.text.secondary,
-    },
+    backgroundColor: theme.button.secondaryHoverColor,
   },
 }));

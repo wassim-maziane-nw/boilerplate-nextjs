@@ -9,6 +9,7 @@ declare module "@mui/material/styles" {
       width: string;
       height: string;
       hoverColor: string;
+      secondaryHoverColor: string;
     };
   }
   interface ThemeOptions {
@@ -19,6 +20,7 @@ declare module "@mui/material/styles" {
       width: string;
       height: string;
       hoverColor: string;
+      secondaryHoverColor: string;
     };
   }
 }
@@ -59,9 +61,10 @@ export const muiTheme = createTheme({
   },
   button: {
     borderStyle: "solid",
-    borderWidth: "1px",
+    borderWidth: "1.5px",
     borderRadius: "3.75rem",
     hoverColor: "#EB514E",
+    secondaryHoverColor: "#595959",
     width: "8.625rem",
     height: "3.5rem",
   },
