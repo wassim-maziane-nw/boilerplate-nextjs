@@ -6,11 +6,12 @@ import type { FC } from "react";
 type BaseButtonProps = {
   text: string;
   onClick: () => void;
+  className?: string;
 };
 
-const BaseButton: FC<BaseButtonProps> = ({ text, onClick }) => {
+const BaseButton: FC<BaseButtonProps> = ({ text, onClick, className }) => {
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton onClick={onClick} className={className}>
       <span>{text}</span>
     </StyledButton>
   );

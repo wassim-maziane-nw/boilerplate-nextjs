@@ -5,9 +5,10 @@ export const StyledButton = styled("button")(({ theme }: { theme: Theme }) => ({
   width: theme.button.width,
   height: theme.button.height,
   borderRadius: theme.button.borderRadius,
-  borderColor: theme.palette.primary.main,
+  borderColor: theme.palette.secondary.main,
   borderWidth: theme.button.borderWidth,
   borderStyle: "solid",
+  backgroundColor: theme.palette.primary.main,
 
   "& span": {
     fontFamily: theme.typography.fontFamily,
