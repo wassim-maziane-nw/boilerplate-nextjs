@@ -1,7 +1,7 @@
 "use client";
 
-import PrimaryButton from "~components/primaryButton";
-import SecondaryButton from "~components/secondaryButton";
+import PrimaryButton from "~components/primary-button";
+import SecondaryButton from "~components/secondary-button";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 
@@ -13,8 +13,8 @@ const Home: FC = () => {
   return (
     <Background className="background-div">
       <div className="flex justify-center items-center h-full w-full gap-4">
-        <PrimaryButton text={translate(txKeys.common.joinButton)} onClick={() => undefined} />
-        <SecondaryButton text={translate(txKeys.common.joinButton)} onClick={() => undefined} />
+        <PrimaryButton text={translate(txKeys.common.homePage.joinButton)} onClick={() => undefined} />
+        <SecondaryButton text={translate(txKeys.common.homePage.joinButton)} onClick={() => undefined} />
       </div>
     </Background>
   );

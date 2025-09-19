@@ -1,4 +1,4 @@
-import PrimaryButton from "~components/primaryButton";
+import PrimaryButton from "~components/primary-button";
 
 import { render, screen, userEvent } from "./test-utils";
 

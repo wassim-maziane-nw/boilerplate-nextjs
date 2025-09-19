@@ -1,4 +1,4 @@
-import { StyledPrimaryButton } from "./PrimaryButton.style";
+import { StyledPrimaryButton } from "./primary-button.style";
 
 import type { FC } from "react";
 

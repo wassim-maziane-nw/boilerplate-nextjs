@@ -1,6 +1,6 @@
 "use client";
 
-import { StyledButton } from "./BaseButton.style";
+import { StyledButton } from "./base-button.style";
 
 import type { FC } from "react";
 type BaseButtonProps = {
