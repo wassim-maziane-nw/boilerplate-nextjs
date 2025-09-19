@@ -44,7 +44,7 @@ const Home: FC = () => {
           <Image src="/assets/theodo-logo.svg" alt="Theodo Logo" width={295} height={63} />
           <Typography variant="h1">{translate(txKeys.common.homePage.title)}</Typography>
           <Typography variant="h2">{translate(txKeys.common.homePage.subtitle)}</Typography>
-          <div className="flex gap-6">
+          <div className="flex gap-6 pt-8">
             <SecondaryButton title={translate(txKeys.common.homePage.joinButton)} onClick={handleJoinClick} />
             <PrimaryButton title={translate(txKeys.common.homePage.signInButton)} onClick={handleSigninClick} />
           </div>

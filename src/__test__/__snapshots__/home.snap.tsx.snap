@@ -115,7 +115,7 @@ exports[`Testing page example should render home 1`] = `
           Rejoignez l'initiative worktools de Theodo pour être paré à vos tâches quotidiennes
         </h2>
         <div
-          class="flex gap-6"
+          class="flex gap-6 pt-8"
         >
           <button
             class="emotion-3"
