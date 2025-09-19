@@ -18,9 +18,12 @@ const Home: FC = () => {
   const handleJoinClick = () => {
     router.push("/signup");
   };
+  const handleSigninClick = () => {
+    router.push("/signin");
+  };
   return (
     <Background className="background-div relative">
-      <Link href="#" className="absolute top-4 right-40 flex gap-2">
+      <Link href="/signin" className="absolute top-4 right-40 flex gap-2">
         <Image src="/assets/user.svg" alt="Theodo user" width={14} height={16} />
         <div>
           <Typography variant="h3" color="silver" component="span">
@@ -36,7 +39,7 @@ const Home: FC = () => {
           <Typography variant="h2">{translate(txKeys.common.homePage.subtitle)}</Typography>
           <div className="flex gap-6">
             <SecondaryButton title={translate(txKeys.common.homePage.joinButton)} onClick={handleJoinClick} />
-            <PrimaryButton title={translate(txKeys.common.homePage.signInButton)} onClick={() => undefined} />
+            <PrimaryButton title={translate(txKeys.common.homePage.signInButton)} onClick={handleSigninClick} />
           </div>
         </div>
       </div>
