@@ -6,7 +6,12 @@
     "generalError": "An error has occurred",
     "styledButton": "Example of @emotion/styled button ",
     "homePage": {
-      "joinButton": "join"
+      "joinButton": "join",
+      "signInButton": "Sign in",
+      "title": "Curated tools to gear you up!",
+      "subtitle": "Join Theodo's worktools initiative to get you suited up for your daily tasks",
+      "continueLink": "Continue as",
+      "userFallback": "[Theodo User]"
     }
   }
 }
