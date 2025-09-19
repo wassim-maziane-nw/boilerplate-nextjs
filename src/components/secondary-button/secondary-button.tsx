@@ -1,4 +1,4 @@
-import { StyledSecondaryButton } from "./SecondaryButton.style";
+import { StyledSecondaryButton } from "./secondary-button.style";
 
 import type { FC } from "react";
 

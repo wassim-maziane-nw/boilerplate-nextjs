@@ -5,6 +5,8 @@
     "labelExampleFormatted": "exemple de texte <underline>formaté</underline>",
     "generalError": "Une erreur s'est produite",
     "styledButton": "Exemple de bouton @emotion/styled",
-    "joinButton": "rejoindre"
+    "homePage": {
+      "joinButton": "rejoindre"
+    }
   }
 }

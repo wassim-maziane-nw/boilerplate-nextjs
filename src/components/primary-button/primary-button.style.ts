@@ -1,4 +1,4 @@
-import BaseButton from "~components/baseButton";
+import BaseButton from "~components/base-button";
 
 import { styled } from "@mui/material/styles";
 
