@@ -18,7 +18,7 @@ exports[`Testing page example should render home 1`] = `
   height: 3.5rem;
   border-radius: 3.75rem;
   border-color: #404040;
-  border-width: 1px;
+  border-width: 1.5px;
   border-style: solid;
   background-color: #FFFFFF;
 }
@@ -47,7 +47,7 @@ exports[`Testing page example should render home 1`] = `
   height: 3.5rem;
   border-radius: 3.75rem;
   border-color: #FFFFFF;
-  border-width: 1px;
+  border-width: 1.5px;
   border-style: solid;
   background-color: transparent;
 }
@@ -64,11 +64,7 @@ exports[`Testing page example should render home 1`] = `
 }
 
 .emotion-2:hover {
-  background-color: #FFFFFF;
-}
-
-.emotion-2:hover span {
-  color: #404040;
+  background-color: #595959;
 }
 
 <div>
