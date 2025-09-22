@@ -1,6 +1,6 @@
 "use client";
 
-import { type FC, useState } from "react";
+import React, { type FC, useState } from "react";
 
 import PrimaryButton from "~components/primary-button";
 import SecondaryButton from "~components/secondary-button";
@@ -9,14 +9,24 @@ import { IMAGES } from "~config/images";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 
+import type { signInValidationType } from "./signInvalidationSchema";
+import { signInValidationSchema } from "./signInvalidationSchema";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { IconButton, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
 const SigninForm: FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const translate = useTranslation();
   const searchParams = useSearchParams();
+  const { register } = useForm<signInValidationType>({
+    resolver: zodResolver(signInValidationSchema),
+  });
+  const { ref: emailRef, ...emailField } = register("email");
+  const { ref: passwordRef } = register("password");
   const prefilled = searchParams?.get("prefilled");
 
   const handleClickPasswordVisiblity = () => {
@@ -34,25 +44,29 @@ const SigninForm: FC = () => {
         <Image src={IMAGES.theodoLogo} height={36} width={167} alt="theodo logo" />
         {translate(txKeys.common.signInPage.welcome)}
         <div className="flex flex-col gap-4 w-1/2">
-          <TextInput
-            label="Email address"
-            value={prefilled === "true" ? localStorage.getItem("LAST_CONNECTED_EMAIL") : ""}
-            variant="standard"
-          />
-          <TextInput
-            label="Password"
-            variant="standard"
-            type={showPassword ? "text" : "password"}
-            InputProps={{
-              endAdornment: (
-                <IconButton onClick={handleClickPasswordVisiblity}>
-                  <Image src={IMAGES.eye} width={20} height={20} alt="visibility icon" />
-                </IconButton>
-              ),
-            }}
-          />
-          <div className="flex flex-col gap-4 pt-8">
+          <form>
+            <TextInput
+              label="Email address"
+              inputRef={emailRef}
+              value={prefilled === "true" ? localStorage.getItem("LAST_CONNECTED_EMAIL") : ""}
+              variant="standard"
+            />
+            <TextInput
+              label="Password"
+              variant="standard"
+              inputRef={passwordRef}
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <IconButton onClick={handleClickPasswordVisiblity}>
+                    <Image src={IMAGES.eye} width={20} height={20} alt="visibility icon" />
+                  </IconButton>
+                ),
+              }}
+            />
             <PrimaryButton fullWidth title="Sign In" onClick={() => undefined} />
+          </form>
+          <div className="flex flex-col gap-4 pt-8">
             <SecondaryButton
               fullWidth
               title="Continue with Google"
