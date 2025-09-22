@@ -8,7 +8,7 @@ const SignIn: FC<PropsWithChildren> = ({ children }) => {
       <div className="relative hidden md:block md:w-1/2 h-full">
         <AuthImage src={IMAGES.microphone} alt="microphone" />
       </div>
-      <div className="flex w-full md:w-1/2 justify-center items-center">{children}</div>
+      <div className="flex h-full w-full md:w-1/2">{children}</div>
     </div>
   );
 };
