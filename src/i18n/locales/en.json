@@ -12,6 +12,9 @@
       "subtitle": "Join Theodo's worktools initiative to get you suited up for your daily tasks",
       "continueLink": "Continue as",
       "userFallback": "[Theodo User]"
+    },
+    "signInPage": {
+      "welcome": "Welcome back"
     }
   }
 }

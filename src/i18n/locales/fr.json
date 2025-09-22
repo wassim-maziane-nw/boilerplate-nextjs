@@ -12,6 +12,9 @@
       "subtitle": "Rejoignez l'initiative worktools de Theodo pour être paré à vos tâches quotidiennes",
       "continueLink": "Continuer en tant que",
       "userFallback": "[Theodo User]"
+    },
+    "signInPage": {
+      "welcome": "Welcome back"
     }
   }
 }
