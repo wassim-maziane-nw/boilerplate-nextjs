@@ -5,10 +5,12 @@ import type { FC } from "react";
 type PrimaryButtonProps = {
   title: string;
   onClick: () => void;
+  fullWidth?: boolean;
+  iconPath?: string;
 };
 
-const PrimaryButton: FC<PrimaryButtonProps> = ({ title, onClick }) => {
-  return <StyledPrimaryButton onClick={onClick} title={title} />;
+const PrimaryButton: FC<PrimaryButtonProps> = ({ title, onClick, fullWidth = false, iconPath }) => {
+  return <StyledPrimaryButton onClick={onClick} title={title} fullWidth={fullWidth} iconPath={iconPath} />;
 };
 
 export default PrimaryButton;
