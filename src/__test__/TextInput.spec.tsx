@@ -3,7 +3,6 @@ import TextInput from "~components/text-input";
 import { render } from "./test-utils";
 const defaultProps = {
   label: "Input",
-  defaultValue: "default",
   value: "value",
   disabled: true,
 };
