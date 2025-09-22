@@ -71,6 +71,11 @@ export const muiTheme = createTheme({
       fontSize: "1rem",
       lineHeight: "1.5rem",
     },
+    body2: {
+      fontWeight: 700,
+      fontSize: "0.75rem",
+      lineHeight: "0.75rem",
+    },
   },
   button: {
     borderStyle: "solid",
