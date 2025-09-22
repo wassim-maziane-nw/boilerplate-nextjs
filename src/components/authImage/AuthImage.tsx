@@ -6,7 +6,11 @@ type AuthImageProps = {
   alt: string;
 };
 const AuthImage: FC<AuthImageProps> = ({ src, alt }) => {
-  return <Image src={src} alt={alt} className="aspect-25/32 object-contain" fill />;
+  return (
+    <div className="relative hidden md:block md:w-1/2 h-full">
+      <Image src={src} alt={alt} className="aspect-25/32 object-contain" fill />
+    </div>
+  );
 };
 
 export default AuthImage;
