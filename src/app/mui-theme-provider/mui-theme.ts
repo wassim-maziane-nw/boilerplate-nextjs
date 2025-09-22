@@ -41,6 +41,7 @@ export const muiTheme = createTheme({
     },
     background: {
       default: "#000000",
+      paper: "#232324",
     },
     text: {
       primary: "#FFFFFF",
@@ -65,6 +66,11 @@ export const muiTheme = createTheme({
       fontWeight: 600,
       fontSize: "1rem",
       lineHeight: "1rem",
+    },
+    h4: {
+      fontWeight: 400,
+      fontSize: "1rem",
+      lineHeight: "1.25rem",
     },
     body1: {
       fontWeight: 600,

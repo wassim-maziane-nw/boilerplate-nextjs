@@ -2,7 +2,7 @@ import type { SiteConfiguration } from "./types";
 
 export const SITE_CONFIG: SiteConfiguration = {
   description: `Nimbleways' Opinionated Next.js boilerplate`,
-  title: "NimbleNext",
+  title: "Theodo Dojo",
   titleSeparator: " · ",
 
   domain: `nimbleways.com`,
