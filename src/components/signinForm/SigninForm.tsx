@@ -10,7 +10,7 @@ import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 
 import type { signInValidationType } from "./signInvalidationSchema";
-import { signInValidationSchema } from "./signInvalidationSchema";
+import { buildSignInValidationSchema } from "./signInvalidationSchema";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { IconButton, Typography } from "@mui/material";
@@ -22,16 +22,27 @@ const SigninForm: FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const translate = useTranslation();
   const searchParams = useSearchParams();
-  const { register } = useForm<signInValidationType>({
-    resolver: zodResolver(signInValidationSchema),
-  });
-  const { ref: emailRef, ...emailField } = register("email");
-  const { ref: passwordRef } = register("password");
   const prefilled = searchParams?.get("prefilled");
+  const signInValidationSchema = buildSignInValidationSchema(translate);
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<signInValidationType>({
+    resolver: zodResolver(signInValidationSchema),
+    defaultValues: {
+      email: prefilled === "true" ? localStorage.getItem("LAST_CONNECTED_EMAIL") ?? "" : "",
+      password: "",
+    },
+  });
 
   const handleClickPasswordVisiblity = () => {
     setShowPassword(!showPassword);
   };
+
+  const submitForm = () => undefined;
   return (
     <div className="relative h-full w-full bg-brand-gray ">
       <Link href="/" className="absolute top-4 left-4">
@@ -40,21 +51,23 @@ const SigninForm: FC = () => {
           <Typography variant="body2">Back</Typography>
         </div>
       </Link>
-      <div className="flex flex-col gap-4 w-full h-full justify-center items-center">
+      <div className="flex flex-col gap-4 w-1/2 mx-auto h-full justify-center items-center">
         <Image src={IMAGES.theodoLogo} height={36} width={167} alt="theodo logo" />
         {translate(txKeys.common.signInPage.welcome)}
-        <div className="flex flex-col gap-4 w-1/2">
-          <form>
+        <form className="w-full" onSubmit={handleSubmit(submitForm)}>
+          <div className="flex flex-col gap-4 pb-8">
             <TextInput
               label="Email address"
-              inputRef={emailRef}
-              value={prefilled === "true" ? localStorage.getItem("LAST_CONNECTED_EMAIL") : ""}
+              {...register("email")}
+              type="text"
               variant="standard"
+              error={Boolean(errors.email)}
+              helperText={errors.email?.message}
             />
             <TextInput
               label="Password"
               variant="standard"
-              inputRef={passwordRef}
+              {...register("password")}
               type={showPassword ? "text" : "password"}
               InputProps={{
                 endAdornment: (
@@ -63,18 +76,15 @@ const SigninForm: FC = () => {
                   </IconButton>
                 ),
               }}
+              error={Boolean(errors.password)}
+              helperText={errors.password?.message}
             />
-            <PrimaryButton fullWidth title="Sign In" onClick={() => undefined} />
-          </form>
-          <div className="flex flex-col gap-4 pt-8">
-            <SecondaryButton
-              fullWidth
-              title="Continue with Google"
-              onClick={() => undefined}
-              iconPath={IMAGES.google}
-            />
-            <SecondaryButton fullWidth title="Continue with Apple" onClick={() => undefined} iconPath={IMAGES.apple} />
           </div>
+          <PrimaryButton fullWidth title="Sign In" onClick={() => undefined} />
+        </form>
+        <div className="flex flex-col gap-4 w-full">
+          <SecondaryButton fullWidth title="Continue with Google" onClick={() => undefined} iconPath={IMAGES.google} />
+          <SecondaryButton fullWidth title="Continue with Apple" onClick={() => undefined} iconPath={IMAGES.apple} />
         </div>
       </div>
     </div>

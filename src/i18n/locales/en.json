@@ -14,7 +14,11 @@
       "userFallback": "[Theodo User]"
     },
     "signInPage": {
-      "welcome": "Welcome back"
+      "welcome": "Welcome back",
+      "errors": {
+        "email": "There seems to be an error in your email address, please verify it!",
+        "password": "The password entered is incorrect. Please make sure it's the right one."
+      }
     }
   }
 }
