@@ -24,8 +24,8 @@ const SigninForm: FC = () => {
   const searchParams = useSearchParams();
   const prefilled = searchParams?.get("prefilled");
   const signInValidationSchema = buildSignInValidationSchema(translate);
+  const lastConnectedEmail = localStorage.getItem("LAST_CONNECTED_EMAIL") ?? "";
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   const {
     register,
     handleSubmit,
@@ -33,7 +33,7 @@ const SigninForm: FC = () => {
   } = useForm<signInValidationType>({
     resolver: zodResolver(signInValidationSchema),
     defaultValues: {
-      email: prefilled === "true" ? localStorage.getItem("LAST_CONNECTED_EMAIL") ?? "" : "",
+      email: prefilled === "true" ? lastConnectedEmail : "",
       password: "",
     },
   });
@@ -57,7 +57,7 @@ const SigninForm: FC = () => {
         <form className="w-full" onSubmit={handleSubmit(submitForm)}>
           <div className="flex flex-col gap-4 pb-8">
             <TextInput
-              label="Email address"
+              label={translate(txKeys.common.signInPage.formFields.emailAddress)}
               {...register("email")}
               type="text"
               variant="standard"
@@ -65,7 +65,7 @@ const SigninForm: FC = () => {
               helperText={errors.email?.message}
             />
             <TextInput
-              label="Password"
+              label={translate(txKeys.common.signInPage.formFields.Password)}
               variant="standard"
               {...register("password")}
               type={showPassword ? "text" : "password"}
@@ -80,11 +80,21 @@ const SigninForm: FC = () => {
               helperText={errors.password?.message}
             />
           </div>
-          <PrimaryButton fullWidth title="Sign In" onClick={() => undefined} />
+          <PrimaryButton fullWidth title={translate(txKeys.common.homePage.signInButton)} onClick={() => undefined} />
         </form>
         <div className="flex flex-col gap-4 w-full">
-          <SecondaryButton fullWidth title="Continue with Google" onClick={() => undefined} iconPath={IMAGES.google} />
-          <SecondaryButton fullWidth title="Continue with Apple" onClick={() => undefined} iconPath={IMAGES.apple} />
+          <SecondaryButton
+            fullWidth
+            title={translate(txKeys.common.signInPage.googleContinue)}
+            onClick={() => undefined}
+            iconPath={IMAGES.google}
+          />
+          <SecondaryButton
+            fullWidth
+            title={translate(txKeys.common.signInPage.appleContinue)}
+            onClick={() => undefined}
+            iconPath={IMAGES.apple}
+          />
         </div>
       </div>
     </div>
