@@ -11,6 +11,7 @@ import { useTranslation } from "~i18n/useTranslation";
 
 import type { signInValidationType } from "./signInvalidationSchema";
 import { buildSignInValidationSchema } from "./signInvalidationSchema";
+import { getLastConnectedEmail } from "./store";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { IconButton, Typography } from "@mui/material";
@@ -22,9 +23,8 @@ const SigninForm: FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const translate = useTranslation();
   const searchParams = useSearchParams();
-  const prefilled = searchParams?.get("prefilled");
+  const preFilled = searchParams?.get("prefilled");
   const signInValidationSchema = buildSignInValidationSchema(translate);
-  const lastConnectedEmail = localStorage.getItem("LAST_CONNECTED_EMAIL") ?? "";
 
   const {
     register,
@@ -33,7 +33,7 @@ const SigninForm: FC = () => {
   } = useForm<signInValidationType>({
     resolver: zodResolver(signInValidationSchema),
     defaultValues: {
-      email: prefilled === "true" ? lastConnectedEmail : "",
+      email: preFilled === "true" ? getLastConnectedEmail() : "",
       password: "",
     },
   });
