@@ -29,7 +29,7 @@ const Home: FC = () => {
     <Background className="background-div relative">
       {user !== null && (
         <Link
-          href={{ pathname: "/signin", query: { prefilled: "true" } }}
+          href={{ pathname: "/signin", query: { "pre-filled": "true" } }}
           className="absolute top-4 right-40 flex gap-2"
         >
           <Image src={IMAGES.userIcon} alt="Theodo user" width={14} height={16} />
